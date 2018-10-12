@@ -1,7 +1,7 @@
 # What is it?
 A Dockerfile based on nvidia/cudagl that allows GPU based training for Unity ml-agents. 
 
-__**It only works for an NVIDIA GPU and you must have the native NVIDIA driver 390 or newer installed.**__ This has only been tested on Debian Stretch stable with nvidia-driver 390.87-2~bpo9+1 on a Dell XPS 9560.
+__**It only works for an NVIDIA GPU and you must have the native NVIDIA driver 390 or newer installed.**__ This has only been tested on Debian Stretch stable with nvidia-driver 390.87-2~bpo9+1 on a Dell XPS 9560, Unity-2018.2.7f1 and ml-agents 0.5.
 
 This Dockerfile is a modified verison of the original [Unity ml-agents
 Dockerfile](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Using-Docker.md)
