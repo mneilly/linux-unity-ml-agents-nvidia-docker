@@ -1,6 +1,5 @@
 # What is it?
-A Dockerfile based on nvidia/cudagl that allows GPU training on an
-NVIDIA GPU and doesn't require a headless training environment.
+A Dockerfile based on nvidia/cudagl that allows GPU based training for Unity ml-agents. It only works for an NVIDIA GPU. 
 
 This Dockerfile is a modified verison of the original [Unity ml-agents
 Dockerfile](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Using-Docker.md)
@@ -12,6 +11,8 @@ You must have
 [nvidia-docker2](https://github.com/nvidia/nvidia-docker/wiki/Installation-%28version-2.0%29)
 installed. nvidia-docker2 provides an NVIDIA docker runtime that
 enables use of the GPU from docker.
+
+Since OpenGL is also installed you are not required to use a headless trainng enviroment.
 
 # Building the Docker image
 
