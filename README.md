@@ -12,7 +12,7 @@ You must have
 installed. nvidia-docker2 provides an NVIDIA docker runtime that
 enables use of the GPU from docker.
 
-Since OpenGL is also installed you are not required to use a headless trainng enviroment.
+Since OpenGL is also installed you are not required to use a headless training enviroment.
 
 # Building the Docker image
 
