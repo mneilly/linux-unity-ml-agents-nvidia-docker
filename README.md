@@ -42,7 +42,7 @@ index 83852da6..63f48a94 100644
          'numpy>=1.13.3,<=1.14.5',
 ```
 
-Copy the Dockerfile from this repo to ml-agents/Dockerfile.
+Copy the Dockerfile from this repo to ml-agents/Dockerfile then build the Docker image.
 
 ```
 $ docker build -t ml-agents .
