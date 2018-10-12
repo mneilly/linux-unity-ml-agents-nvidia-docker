@@ -1,4 +1,4 @@
-# linux-unity-ml-agents-nvidia-docker A modified Unity ml-agents
+# What is it?
 A Dockerfile based on nvidia/cudagl that allows GPU training on an
 NVIDIA GPU and doesn't require a headless training environment.
 
@@ -8,20 +8,23 @@ but is based on
 [nvidia/cudagl](https://hub.docker.com/r/nvidia/cudagl). nvidia/cudagl
 provides both CUDA and OpenGL. The Dockerfile also installs cuDNN.
 
-You must also have
-[nvidia-docker2](https://github.com/nvidia/nvidia-docker/wiki/Installation-(version-2.0)
+You must have
+[nvidia-docker2](https://github.com/nvidia/nvidia-docker/wiki/Installation-%28version-2.0%29)
 installed. nvidia-docker2 provides an NVIDIA docker runtime that
 enables use of the GPU from docker.
 
 # Building the Docker image
 
+```
 $ git clone https://github.com/Unity-Technologies/ml-agents.git
 $ cd ml-agents
+```
 
 Edit the ml-agents/ml-agents/setup.py script and change 'tensorflow>=1.7,<1.8' to 'tensorflow-gpu>=1.7,<1.8'.
 
 The following shows the diff after the edit:
 
+```
 $ git diff -w ml-agents/setup.py
 diff --git a/ml-agents/setup.py b/ml-agents/setup.py
 index 83852da6..63f48a94 100644
@@ -36,10 +39,13 @@ index 83852da6..63f48a94 100644
          'Pillow>=4.2.1',
          'matplotlib',
          'numpy>=1.13.3,<=1.14.5',
+```
 
-Copy the Dockerfile from this repo over ml-agents/Dockerfile.
+Copy the Dockerfile from this repo to ml-agents/Dockerfile.
 
+```
 $ docker build -t ml-agents .
+```
 
 # Usage
 
@@ -47,4 +53,6 @@ See Unity's [Using Docker For ML-Agents](https://github.com/Unity-Technologies/m
 
 Build your training enviroment and copy your training config file to the same directory then run the following command in that directory:
 
+```
 $ docker run --runtime=nvidia -ti --rm -e DISPLAY -e USER -v /tmp/.X11-unix:/tmp/.X11-unix -v /etc/passwd:/etc/passwd:ro -v /etc/shadow:/etc/shadow:ro -v /etc/group:/etc/group:ro -p 5005:5005 -v $PWD:/unity-volume -u $UID ml-agents <trainer-config-file> --env=<environment-name> --train --run-id=<run-id>
+```
