@@ -57,5 +57,10 @@ See Unity's [Using Docker For ML-Agents](https://github.com/Unity-Technologies/m
 Build your training environment and copy your training config file to the same directory then run the following command in that directory:
 
 ```
-$ docker run --runtime=nvidia -ti --rm -e DISPLAY -e USER -v /tmp/.X11-unix:/tmp/.X11-unix -v /etc/passwd:/etc/passwd:ro -v /etc/shadow:/etc/shadow:ro -v /etc/group:/etc/group:ro -p 5005:5005 -v $PWD:/unity-volume -u $UID ml-agents <trainer-config-file> --env=<environment-name> --train --run-id=<run-id>
+$ docker run --runtime=nvidia -ti --rm -e DISPLAY -e USER 
+-v /tmp/.X11-unix:/tmp/.X11-unix -v /etc/passwd:/etc/passwd:ro 
+-v /etc/shadow:/etc/shadow:ro -v /etc/group:/etc/group:ro 
+-p 5005:5005 -v $PWD:/unity-volume -u $UID ml-agents <trainer-config-file> 
+--env=<environment-name> --train --run-id=<run-id>
 ```
+
