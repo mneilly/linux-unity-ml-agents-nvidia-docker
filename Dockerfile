@@ -62,10 +62,10 @@ RUN set -ex \
 
 RUN export GNUPGHOME="$(mktemp -d)" \
     && ( \
-       gpg --keyserver keyserver.ubuntu.com --recv-keys "$GPG_KEY" \
-       || gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$GPG_KEY" \
-       || gpg --keyserver pgp.mit.edu --recv-keys "$GPG_KEY" \
-       || gpg --keyserver keyserver.pgp.com --recv-keys "$GPG_KEY" \
+       gpg --keyserver keyserver.ubuntu.com:80 --recv-keys "$GPG_KEY" \
+       || gpg --keyserver ha.pool.sks-keyservers.net:80 --recv-keys "$GPG_KEY" \
+       || gpg --keyserver pgp.mit.edu:80 --recv-keys "$GPG_KEY" \
+       || gpg --keyserver keyserver.pgp.com:80 --recv-keys "$GPG_KEY" \
        ) \
 	&& gpg --batch --verify python.tar.xz.asc python.tar.xz \
 	&& rm -rf "$GNUPGHOME" python.tar.xz.asc \
